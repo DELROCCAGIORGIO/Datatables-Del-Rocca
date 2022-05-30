@@ -2,7 +2,7 @@
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
-$servername = "172.17.0.1:3307";
+$servername = "172.17.0.1:3321";
 $user = "root";
 $pass = "gio";
 $db = "mydb";
@@ -73,7 +73,7 @@ if ($_POST["action"] == "create") {
     $inserto = "INSERT INTO employees (birth_date,first_name,last_name,gender,hire_date)" . " Values('$birth','$first','$last','$gender','$hire')"; //select 
     $insertor = mysqli_query($conn, $inserto) or //risultato
         die("Query fallita 0 " . mysqli_error($conn) . " " . mysqli_errno($conn));
-    echo true;
+    echo json_encode(array());
     }
 
 if ($_POST["action"] == "edit") {
@@ -97,6 +97,7 @@ if ($_POST["action"] == "edit") {
         $updar = mysqli_query($conn, $upda) or //risultato
             die("Query fallita 0 " . mysqli_error($conn) . " " . mysqli_errno($conn));
     }
-    echo true;
+    echo json_encode(array());
 }
+
 
